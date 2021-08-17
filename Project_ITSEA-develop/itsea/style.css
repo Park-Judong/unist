@@ -1,0 +1,772 @@
+:root {
+  /* --itsea-main-color: #1b59a3 */
+  /* --itsea-sub-color: #239dd5 */
+  --itsea-main-color: #f4f5f7;
+  --itsea-contact-color: #e7eef4;
+
+  /* --main-text-color: beige; */
+  --main-text-color: #b2ebf2;
+  --menu-background-color: #546e7a;
+  --accent-color: lightblue;
+  --logo-color: #b2ebf2;
+  /* --logo-text-color: #fff9c4; */
+  --logo-text-color: white;
+
+  --border-color: #e0e0e0;
+  --border-menu-color: #607d8b;
+  --border-gray-color: #c0c0c0;
+  /* --border-yellow-color: #fff9c4; */
+  --border-yellow-color: white;
+
+  --background-color: white;
+  --background-gray-color: #e0e0e0;
+  --backgronud-yellow-color: #fffde7;
+  --backgronud-yellow-color: white;
+
+  --logo-font-size: 50px;
+  --menu-font-size: 32px;
+  --menu-small-font-size: 24px;
+  --menu-text-size: 16px;
+  --padding-side: 32px;
+  --name-font-size: 40px;
+}
+
+@font-face {
+  font-family: "NanumMyeongjo";
+  src: url("./font/NanumMyeongjo-Regular.ttf") format("truetype");
+}
+
+body {
+  /* background: linear-gradient(white, var(--border-menu-color)); */
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: "Source Sans Pro", "NanumMyeongjo", sans-serif;
+}
+
+/*-------------------------------
+              Header
+-------------------------------*/
+/* navbar의 목록 (home, about us, product, business, contact) */
+a {
+  text-decoration: none;
+  color: var(--main-text-color);
+  font-size: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 회사로고 및 회사명 */
+.navbar_logo {
+  position: absolute;
+  color: var(--logo-text-color);
+  top: 10px;
+  left: var(--padding-side);
+}
+
+.navbar_logo img {
+  width: 200px;
+}
+/* 회사명 세부 특징 */
+.navbar_logo .name {
+  font-size: var(--logo-font-size);
+}
+
+/* 회사로고 세부 특징 */
+.navbar_logo i {
+  color: var(--logo-color);
+  font-size: var(--logo-font-size);
+  padding-right: 10px;
+}
+
+/* navbar 목록 */
+.navbar_menu {
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: var(--padding-side);
+  list-style: none;
+}
+
+.navbar_menu li {
+  padding: 8px 12px;
+}
+
+.navbar_menu li a {
+  font-size: 25px;
+}
+
+/* 각 목록에 마우스 포인터를 가져다 놓을 때 */
+.navbar_menu li:hover {
+  background: var(--menu-background-color);
+  border-radius: 4px;
+  opacity: 0.9;
+}
+
+/* home 화면 auto video */
+video {
+  object-fit: cover;
+  z-index: -1000;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+/* video 위에 회사 소개 text */
+.video_text {
+  position: absolute;
+  color: var(--main-text-color);
+  font-size: 25px;
+  font-style: italic;
+  bottom: 30px;
+  left: 30px;
+  width: 50%;
+}
+
+/* 햄버거 버튼 */
+.navbar_toggleButton {
+  position: absolute;
+  right: var(--padding-side);
+  top: 20px;
+  font-size: 32px;
+  display: none;
+  color: var(--logo-text-color);
+}
+
+/*----------------------
+      main section
+----------------------*/
+section {
+  z-index: 1000;
+  bottom: 0;
+  /* background-color: var(--background-color); */
+}
+
+.upscroll_button {
+  font-size: var(--menu-font-size);
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 20px var(--padding-side);
+  color: var(--menu-background-color);
+}
+
+.upscroll_button:hover {
+  color: var(--main-text-color);
+}
+
+/* About us - about*/
+.aboutus {
+  background: var(--itsea-main-color);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid var(--border-yellow-color); */
+  padding-bottom: var(--padding-side);
+}
+
+.aboutus .about_name {
+  margin: var(--padding-side) 10px;
+  margin-top: 60px;
+  font-size: var(--name-font-size);
+  border-top: 1px solid var(--border-gray-color);
+  padding-top: 10px;
+}
+
+.aboutus .ourmission {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 5px solid white; */
+  margin: 10px;
+  background-color: white;
+}
+
+.aboutus .our {
+  display: flex;
+  width: 800px;
+  height: auto;
+  border: 5px solid white;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutus .mission_title {
+  margin: var(--padding-side) 10px;
+  margin-top: 60px;
+  font-size: var(--menu-small-font-size);
+  padding: 10px var(--logo-font-size);
+  width: 60%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--backgronud-yellow-color);
+}
+
+.aboutus .mission_text {
+  text-align: center;
+  margin: 10px;
+  font-size: var(--menu-text-size);
+  width: 90%;
+  max-width: 680px;
+  height: 100%;
+  max-height: 100px;
+  align-items: center;
+  padding: 10px 10px 70px 10px;
+  background-color: white;
+}
+
+.member {
+  display: none;
+}
+
+.members {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed var(--border-gray-color);
+}
+
+.members .members_img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 180px;
+}
+
+.members .members_img .members_name {
+  font-size: 20px;
+  margin: 10px 0px;
+}
+
+.members_img img {
+  width: 100px;
+  height: auto;
+  background-color: white;
+  border: 1px solid var(--border-gray-color);
+  border-radius: 50%;
+}
+
+.members_downButton {
+  /* display: none; */
+  font-size: 20px;
+  color: var(--border-gray-color);
+}
+
+.members_upButton {
+  font-size: 28px;
+  display: none;
+  color: var(--main-text-color);
+}
+
+/* About us - technology */
+.technology {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: var(--padding-side);
+  background: var(--background-color);
+  text-align: center;
+}
+
+.technology .tech_name {
+  margin: var(--padding-side) 10px;
+  margin-top: 60px;
+  font-size: var(--name-font-size);
+  border-top: 1px solid var(--border-gray-color);
+  padding-top: 10px;
+}
+
+.technology .feature {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 80%;
+}
+
+.technology .feature .feature1,
+.technology .feature .feature2,
+.technology .feature .feature3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid var(--background-gray-color);
+  width: 300px;
+}
+/* 
+.technology .feature i {
+  font-size: 40px;
+  margin: var(--padding-side) 10px;
+} */
+
+.technology .feature img {
+  width: 80px;
+  margin: var(--padding-side) 10px;
+  padding-bottom: 20px;
+}
+
+/* Product */
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: var(--padding-side);
+  background: var(--itsea-main-color);
+  text-align: center;
+}
+
+.product .product_name {
+  margin: var(--padding-side) 10px;
+  margin-top: 60px;
+  font-size: var(--name-font-size);
+  border-top: 1px solid var(--border-gray-color);
+  padding-top: 10px;
+}
+
+.product .items {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 90%;
+  max-width: 900px;
+  border: 1px solid var(--border-yellow-color);
+}
+
+.product .items .item1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid var(--background-gray-color);
+  background: var(--background-color);
+}
+.product .items .item1_text,
+.product .items .item2_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product .items .item2 {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid var(--background-gray-color);
+  background: var(--background-color);
+}
+
+.product .items img {
+  width: 400px;
+  height: auto;
+  transition: 0.5s all ease-in-out;
+}
+
+.product .items img:hover {
+  transition-delay: 0;
+  transition: 0.3s ease;
+  transform: scale(1.05);
+}
+
+.product .items span {
+  padding: 10px 20px;
+}
+
+.product .items .item1_name,
+.product .items .item2_name {
+  font-size: 20px;
+  margin: 0 0 20px 0;
+}
+
+/* Business */
+.business {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: var(--padding-side);
+  /* background: var(--background-color); */
+  text-align: center;
+}
+
+.business_name {
+  margin: 60px 10px 0px 10px;
+  font-size: var(--name-font-size);
+  border-top: 1px solid var(--border-gray-color);
+  padding-top: 10px;
+}
+
+.business_items {
+  padding-top: 35px;
+  font-size: 24px;
+  border-bottom: 1px solid var(--border-gray-color);
+}
+
+.business img {
+  width: 100%;
+  /* max-width: 60px; */
+  height: auto;
+  margin: var(--padding-side) 0;
+}
+
+.business img:hover {
+  transition-delay: 0;
+  transition: 0.3s ease;
+  transform: scale(1.01);
+  box-shadow: 0px 14px 20px 0px rgba(0, 0, 0, 0.5);
+}
+
+.business_left img {
+  margin-top: 50%;
+}
+
+.business_right .business_item2,
+.business_right .business_item3 {
+  margin-left: var(--menu-font-size);
+}
+.business_right .business_item3 {
+  margin-top: 40px;
+}
+
+.business_item1 span,
+.business_item2 span,
+.business_item3 span {
+  position: relative;
+  bottom: 60px;
+}
+
+/* img specific */
+
+.business_contents h2,
+.business_contents h4 {
+  position: relative;
+  bottom: 120px;
+  right: 0px;
+  padding: 5px 10px 10px;
+  margin: 0;
+  text-transform: uppercase;
+  text-align: left;
+}
+.business_contents h2 {
+  font-weight: 400;
+  color: white;
+}
+.business_contents h4 {
+  display: block;
+  font-weight: 700;
+  background-color: #000000;
+  padding: 5px 10px;
+  color: white;
+}
+
+.business .business_contents {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  max-width: 80%;
+}
+
+.business_left {
+  display: flex;
+  flex-direction: column;
+  max-width: 450px;
+  min-width: 400px;
+  /* margin: var(--padding-side);
+  padding: var(--padding-side) 10px 0px 10px; */
+}
+
+.business_left .business_item1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.business_right {
+  display: flex;
+  flex-direction: column;
+  margin: var(--padding-side);
+  max-width: 450px;
+  min-width: 400px;
+}
+
+/* Contact */
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: var(--padding-side);
+  background: var(--itsea-contact-color);
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+  margin-right: 0;
+  /* border: 1px solid var(--menu-background-color); */
+}
+
+.contact span {
+  color: var(--border-menu-color);
+}
+
+.contact .contact_name {
+  margin: var(--padding-side) 10px;
+  margin-top: 60px;
+  font-size: var(--name-font-size);
+  border-top: 1px solid var(--menu-background-color);
+  padding-top: 10px;
+}
+
+.contact .contact_contents {
+  width: 70%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.contact .contact_contents .container {
+  min-width: 300px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  /* resize: vertical; */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style the submit button with a specific background color etc */
+.submit {
+  background-color: var(--menu-background-color);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+.submit:hover {
+  background-color: var(--accent-color);
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  width: 70%;
+  border-radius: 5px;
+  padding: 20px 0 20px 20px;
+}
+
+.container label {
+  color: var(--border-menu-color);
+}
+.roadmap {
+  padding: 0 20px;
+  margin-left: 20px;
+}
+
+.roadmap .phone_number {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: var(--padding-side);
+  border: 1px solid var(--border-menu-color);
+}
+
+.verification {
+  width: 60%;
+  font-size: 10px;
+  padding-top: 20px;
+  text-align: center;
+}
+/*--------------------------- 
+768px보다 작을 경우, nav logic
+----------------------------*/
+@media screen and (max-width: 48em) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 8px 20px;
+  }
+
+  /* width를 설정해 주어야 align이 가능하다 */
+  /* media query일 경우 display가 사라진다. */
+  /* [768px] navbar */
+  .navbar_menu {
+    flex-direction: column;
+    align-items: flex-end;
+    width: 20%;
+    display: none;
+    background: #29434e;
+    /* background: var(--background-color); */
+    border-radius: 4px;
+    opacity: 0.9;
+    position: fixed;
+    z-index: 1;
+  }
+
+  .navbar_menu li {
+    width: 100%;
+    text-align: center;
+    /* opacity: 0.8; */
+    padding-right: 20px;
+    margin-right: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+
+  .navbar_menu li a {
+    font-size: 20px;
+  }
+
+  .video_text {
+    font-size: 20px;
+    width: 40%;
+  }
+
+  .navbar_toggleButton {
+    display: block;
+    z-index: 2;
+    position: fixed;
+    color: var(--logo-color);
+  }
+
+  .navbar_toggleButton:hover {
+    color: var(--accent-color);
+  }
+
+  .navbar_menu.active {
+    display: flex;
+  }
+
+  /* [768px] aboutus */
+
+  .members {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .members_img img {
+    width: 100px;
+  }
+
+  /* [768px] technology */
+
+  .technology .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .technology .feature .feature1,
+  .technology .feature .feature2,
+  .technology .feature .feature3 {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--padding-side);
+    max-width: 70%;
+    align-content: center;
+  }
+
+  /* [768px] product */
+  .product .items {
+    align-items: center;
+  }
+  .product .items .item1,
+  .product .items .item2 {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .product .items img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* [768px] business */
+  .business .business_contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .business_left img {
+    margin-top: 10%;
+  }
+  .business_left {
+    margin-bottom: 10px;
+  }
+
+  .business_right .business_item2 img {
+    margin-top: 0;
+  }
+
+  .business_left {
+    padding: var(--padding-side);
+  }
+
+  .business_right .business_item2,
+  .business_right .business_item3 {
+    margin-left: 0;
+  }
+
+  /* [768px] Contact */
+
+  .contact .contact_contents {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+  }
+
+  .contact_contents .container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    max-width: 70%;
+  }
+
+  .roadmap {
+    margin-left: 0;
+  }
+
+  .verification {
+    margin-top: 10px;
+  }
+
+  .contact .contact_contents {
+    min-width: 500px;
+  }
+}

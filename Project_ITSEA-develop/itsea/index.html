@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ITSEA</title>
+
+        <script defer src="main.js"></script>
+        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script defer src="https://kit.fontawesome.com/652eb36361.js" crossorigin="anonymous"></script>
+        <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+
+        <!-- favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="./img/favicon-removebg-preview.ico">
+        
+        <!-- open graph -->
+        <meta property="og:title" content="ITSEA" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://127.0.0.1:5500/itsea/index.html"/>
+        <meta property="og:image" content="./img/Container.png" />
+
+        <!-- back-end submit -->
+        <script>
+            function submit(){
+                $.ajax({
+                    method:"POST",
+                    url:"http://localhost:8081/sendEmail",
+                    data:{
+                        name: document.getElementById("name").value,
+                        email: document.getElementById("email").value,
+                        country: document.getElementById("country").value,
+                        subject: document.getElementById("subject").value,
+                        content: document.getElementById("content").value
+                    }
+                })
+                .done(function(){
+                    document.getElementById("name").value='';
+                    document.getElementById("email").value='';
+                    document.getElementById("country").value='';
+                    document.getElementById("subject").value='';
+                    document.getElementById("content").value='';
+                    alert('메일 전송에 성공하였습니다.');
+                })
+                .fail(function(){
+                    console.log('FAIL...');
+                })
+                .always(function(){
+                    console.log('ALWAYS');
+                })
+            }  
+        </script>
+    </head>
+    
+    <body>
+        <!-- nav -->
+        <nav class="navbar" id="navbar">
+                <video autoplay muted loop poster="./img/Container.PNG" id="bgvid">
+                    <source src="./video/Container.mp4" type="video/mp4">
+                </video>
+
+            <div class="navbar_contents">
+                <header class="navbar_logo">
+                    <!-- <i class="fab fa-affiliatetheme"></i>
+                    <a class="name" href="">ITSEA</a> -->
+                    <a class="name" href="">
+                        <img src="./img/logo.png" alt="">
+                    </a>
+                </header>
+                
+                <ul class="navbar_menu">
+                    <li><a href="#navbar">Home</a></li>
+                    <li><a href="#tab_aboutus">About us</a></li>
+                    <li><a href="#tab_product">Product</a></li>
+                    <li><a href="#tab_business">Business</a></li>
+                    <li><a href="#tab_contact">Contact</a></li>
+                </ul>
+            </div>
+            <p class="video_text">For Human Convenience, For Better Technology</p>
+
+            <a href="javascript:void(0);" class="navbar_toggleButton" onclick="hamburgerBtn()">
+                <i class="fas fa-bars"></i>
+            </a> 
+        </nav>
+
+        <!-- main section -->
+        <section>
+            <a href="#navbar" class="upscroll_button">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+
+            <!-- About us -->
+            <div class="aboutus" id="tab_aboutus">
+                <span class="about_name">About</span>
+                <div class="our">
+                    <div class="ourmission">
+                        <div class="mission_title">
+                            <span>Our Missions</span>
+                        </div>
+                        <div class="mission_text">
+                            <span>스마트 항만의 구축을 가능하도록 하는 핵심 기술인 자율 접안에 <br>중요한 역할을 하는 라이다(LiDAR)센서와 자사 기술을 통해 <br>토탈 접안 솔루션을 제공합니다</span>
+                        </div>
+                    </div>    
+                </div>
+
+                <div class="mission_title">
+                    <span>Members</span>
+                </div>
+                <a href="javascript:void(0);" class="members_downButton" onclick="membersDownBtn()">
+                    <i class="fas fa-chevron-down"></i>    
+                </a>
+                
+                <a href="javascript:void(0);" class="members_upButton" onclick="membersDownBtn()">
+                    <i class="fas fa-angle-up"></i>
+                </a>
+
+                <div class="member">
+                    <div class="members">
+                        <div class="members_img">
+                            <img src="./img/ceo.png" alt="">
+                            <span class="members_name">Kang</span>
+                            <span>CEO</span>
+                        </div>  
+                        <div class="members_img">
+                            <img src="./img/cto.png" alt="">
+                            <span class="members_name">Han</span>
+                            <span>CTO</span>
+                            <span>LiDAR Lead Engineer</span>
+                        </div>
+                        <div class="members_img">
+                            <img src="./img/ko.png" alt="">
+                            <span class="members_name">Ko</span>
+                            <span>LiDAR Engineer</span>
+                        </div>
+                        <div class="members_img">
+                            <img src="./img/lee.png" alt="">
+                            <span class="members_name">Lee</span>
+                            <span>Accountancy Manager</span>
+                        </div>
+                        <div class="members_img">
+                            <img src="./img/shin.png" alt="">
+                            <span class="members_name">Shin</span>
+                            <span>Server & LiDAR Engineer</span>
+                        </div>
+                        <div class="members_img">
+                            <img src="./img/yoo.png" alt="">
+                            <span class="members_name">Yoo</span>
+                            <span>Front-end & Application Engineer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="technology">
+                <span class="tech_name">Technology</span>
+                <div class="feature">
+                    <div class="feature1">
+                        <!-- <i class="fas fa-broadcast-tower"></i> -->
+                        <img src="./img/realtime_icon.png" alt="">
+                        <span> 선박과 선박, 선박과 관제센터간의 실시간 <br>통신망을 구축하여 사람-항만-선박간 <br>통신 교통 관제가 가능해집니다</span>
+                    </div>
+                    <div class="feature2">
+                        <!-- <i class="fas fa-microchip"></i> -->
+                        <img src="./img/lidar_icon.png" alt="">
+                        <span>2D LiDAR 센서와 카메라를 이용하여 <br>선박 주변의 장애물 인지, 접안 시 필요한 <br>데이터를 수집합니다</span>
+                    </div>
+                    <div class="feature3">
+                        <!-- <i class="fas fa-server"></i> -->
+                        <img src="./img/grid_icon.png" alt="">
+                        <span>2D grid Mapping 기술로 항만 관계자에게 <br>직관적인 선박 주변환경을 보여줍니다</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product -->
+            <div class="product" id="tab_product">
+                <span class="product_name">Product</span>
+                <div class="items">
+                    <div class="item1">
+                        <img src="./img/detector.jpg" alt="">
+                        <div class="item1_text">
+                            <span class="item1_name">LiDAR</span>
+                            <span>2D LiDAR를 사용하여 날씨에 민감한 해상 환경을 <br>정확하게 인식 가능하도록 하며 선박 주변 데이터를 <br>수집해 접안 시 필요한 서라운드 뷰를 제공합니다</span>
+                        </div>
+                    </div>
+                    <div class="item2">
+                        <img src="./img/digital-marketing.jpg" alt="">
+                        <div class="item2_text">
+                            <span class="item2_name">Application</span>
+                            <span>자사가 개발한 토탈 접안 솔루션 어플리케이션을 <br>통해 선박 주변 환경을 볼 수 있습니다</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business -->
+            <div class="business" id="tab_business">
+                <span class="business_name">Business</span>
+                <div class="business_contents">
+                    <div class="business_left">
+                        <span class="business_items">Our Goals</span>
+                        <div class="business_item1">
+                            <img src="./img/vehicle.jpg" alt="">
+                            <h2><strong>N</strong>etwork</h2>
+                            <h4>Real Time with Edge Computing</h4>
+                            <span>엣지 디바이스를 사용하여 분산 처리 능력을 <br>향상시키고 실시간 통신을 가능하도록 합니다</span>
+                        </div>
+                    </div>
+                    <div class="business_right">
+                        <div class="business_item2">
+                            <img src="./img/digital-marketing.jpg" alt="">
+                            <h2>Marine <strong>D</strong>ata</h2>
+                            <h4>Information & Communication Technology</h4>
+                            <span>자율 접안을 위한 비선형 해상 데이터를 수집하고 <br>구축한 엣지 컴퓨팅 서비스를 통해 전송합니다</span>
+                        </div>
+                        <div class="business_item3">
+                            <img src="./img/drone.jpg" alt="">
+                            <h2><strong>A</strong>I</h2>
+                            <h4>Distance Weight & Sensor</h4>
+                            <span>최신 물체 인식 알고리즘을 통해 거리 가중치와 <br>AI image Sensing을 합니다</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="contact" id="tab_contact">
+                <span class="contact_name">Contact</span>
+                <div class="contact_contents">
+                    <!-- 기입하는 곳 -->
+                    <div class="container">
+                        <!-- <form action="post" id="contact"> -->
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your email">
+                            <label for="country">Country</label>
+
+                            <select id="country" name="country">
+                                <option value="southkorea">Republic of Korea</option>
+                                <option value="usa">USA</option>
+                                <option value="japan">Japan</option>
+                                <option value="australia">Australia</option>
+                                <option value="canada">Canada</option>
+                                <option value="china">China</option>
+                                <option value="france">France</option>
+                                <option value="germany">Germany</option>
+                                <option value="India">India</option>
+                                <option value="spain">Spain</option>
+                                <option value="taiwan">Taiwan</option>
+                                <option value="vietnam">Vietnam</option>
+                                <option value="etc">etc.</option>
+                            </select>
+
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject_name" placeholder="Your subject">
+                            <label for="Contents">Contents</label>
+                            <textarea id="content" name="subject" placeholder="..." style="height:200px"></textarea>
+                            <button type="button" class="submit" onclick="submit()">SUBMIT</button>
+                        <!-- </form> -->
+                    </div>
+
+                    <!-- 회사 번호 및 지도 -->
+                    <div class="roadmap">
+                        <div class="phone_number">
+                            <span>Number : 010-4240-2588</span>
+                            <span>Email : ymk961028@naver.com</span>
+                            <span>Address : 가톨릭대학교 성심관 5층 Lab-5실</span>
+                        </div>
+
+                        <!-- 카카오 맵 -->
+                        <div class="map">
+                            <div style="font:normal normal 400 12px/normal dotum, sans-serif; width:500px; height:300px; color:#333; position:relative">
+                                <div style="height: 300px;">
+                                    <a href="https://map.kakao.com/?urlX=455469&urlY=1107840&urlLevel=3&itemId=17566996&q=%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90%20%EC%84%B1%EC%8B%AC%EA%B4%80&srcid=17566996&map_type=TYPE_MAP" target="_blank">
+                                        <img class="map" src="http://t1.daumcdn.net/roughmap/imgmap/e1d3f81c965d8d1f9c695fcd84a786ebc5a588415eb059fca00293282a65c71a" width="499px" height="298px" style="border:1px solid #ccc;">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="verification">© Copyright. All Rights Reserved by ITSEA. This website and contents are under the copyright of ITSEA Corporation. The copyright in the text, images, and any other material (other than the third pot comments and website design) on this website owned by ITSEA. Any redistribution or reproduction of part or all of the contents in any form is prohibited without the official written consent by ITSEA. You may not, except with our formal permission, distribute or commercially exploit the content. Nor may you transmit it or store it in any other website or other forms of the electronic retrieval system.</span>
+            </div>
+        </section>
+    </body>
+</html>
